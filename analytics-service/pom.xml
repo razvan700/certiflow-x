@@ -11,6 +11,13 @@
         <version>1.0.0</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+    </dependencies>
+
     <artifactId>analytics-service</artifactId>
     <packaging>jar</packaging>
 
