@@ -26,5 +26,6 @@ public class Employee extends BaseEntity {
 
     private String department;
 
+    @Builder.Default
     private boolean active = true;
 }
