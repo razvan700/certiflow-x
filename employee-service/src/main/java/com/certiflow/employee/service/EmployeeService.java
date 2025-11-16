@@ -32,6 +32,11 @@ public class EmployeeService {
     }
 
     public Employee updateEmployee(UUID id, Employee updated) {
+        employeeRepository.findByEmail(updated.getEmail()).ifPresent(existingWithEmail -> {
+            if (!existingWithEmail.getId().equals(id)) {
+                throw new ApiException("Email already in use by another employee", 400);
+            }
+        });
         Employee existing = getEmployeeById(id);
         existing.setFirstName(updated.getFirstName());
         existing.setDepartment(updated.getDepartment());
