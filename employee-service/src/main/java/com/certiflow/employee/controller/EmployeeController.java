@@ -37,4 +37,10 @@ public class EmployeeController {
     public void deactivateEmployee(@PathVariable UUID id) {
         employeeService.deactivateEmployee(id);
     }
+
+    @PatchMapping("/{id}/activate")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void activateEmployee(@PathVariable UUID id) {
+        employeeService.activateEmployee(id);
+    }
 }

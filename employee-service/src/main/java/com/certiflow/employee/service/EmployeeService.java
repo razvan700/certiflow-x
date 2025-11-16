@@ -49,4 +49,13 @@ public class EmployeeService {
         employee.setActive(false);
         employeeRepository.save(employee);
     }
+
+    public void activateEmployee(UUID id) {
+        Employee employee = getEmployeeById(id);
+        if (employee.isActive()) {
+            throw new ApiException("Employee is already active", 400);
+        }
+        employee.setActive(true);
+        employeeRepository.save(employee);
+    }
 }
