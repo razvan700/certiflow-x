@@ -43,4 +43,9 @@ public class EmployeeController {
     public void activateEmployee(@PathVariable UUID id) {
         employeeService.activateEmployee(id);
     }
+
+    @PutMapping("/{id}")
+    public Employee updateEmployee(@PathVariable UUID id, @RequestBody Employee employee) {
+        return employeeService.updateEmployee(id, employee);
+    }
 }
