@@ -93,7 +93,7 @@ public class EmployeeService {
     }
 
     public void deactivateEmployee(UUID id) {
-        Employee employee = getEmployeeById(id);
+        Employee employee = employeeRepository.getById(id);
         if (!employee.isActive()) {
             throw new ApiException("Employee is already inactive", 400);
         }
@@ -102,7 +102,7 @@ public class EmployeeService {
     }
 
     public void activateEmployee(UUID id) {
-        Employee employee = getEmployeeById(id);
+        Employee employee = employeeRepository.getById(id);
         if (employee.isActive()) {
             throw new ApiException("Employee is already active", 400);
         }
