@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -10,6 +9,7 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <!-- All child modules -->
     <modules>
         <module>common-libs</module>
         <module>employee-service</module>
@@ -18,17 +18,21 @@
         <module>analytics-service</module>
     </modules>
 
+    <!-- Global properties -->
     <properties>
         <java.version>21</java.version>
-
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-
         <maven.compiler.parameters>true</maven.compiler.parameters>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <lombok.version>1.18.32</lombok.version>
     </properties>
 
+    <!-- Shared dependency versions -->
     <dependencyManagement>
         <dependencies>
+
+            <!-- Spring Boot BOM -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -36,53 +40,53 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- MapStruct runtime -->
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
-                <version>1.5.5.Final</version>
+                <version>${mapstruct.version}</version>
             </dependency>
+
         </dependencies>
-
-
     </dependencyManagement>
 
     <build>
         <pluginManagement>
             <plugins>
 
+                <!-- Spring Boot plugin -->
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
 
+                <!-- Compiler plugin WITH annotation processors -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.11.0</version>
                     <configuration>
-                        <release>21</release>
-                        <compilerArgs>
-                            <arg>-parameters</arg>
-                        </compilerArgs>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.11.0</version>
-                    <configuration>
-                        <release>21</release>
+                        <release>${java.version}</release>
                         <annotationProcessorPaths>
+
+                            <!-- MapStruct annotation processor -->
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
+                            </path>
+
+                            <!-- Lombok processor -->
                             <path>
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
-                                <version>1.18.32</version>
+                                <version>${lombok.version}</version>
                             </path>
+
                         </annotationProcessorPaths>
                     </configuration>
                 </plugin>
-
 
             </plugins>
         </pluginManagement>
