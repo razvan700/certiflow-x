@@ -28,9 +28,11 @@ public class EmployeeService {
         return employeeRepository.findByActiveTrue();
     }
 
-    public Employee getEmployeeById(UUID id) {
-        return employeeRepository.findById(id)
+    public EmployeeResponseDto getEmployeeById(UUID id) {
+        Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ApiException("Employee not found", 404));
+
+        return employeeMapper.toResponseDto(employee);
     }
 
     public EmployeeResponseDto createEmployee(EmployeeRequestDto dto) {

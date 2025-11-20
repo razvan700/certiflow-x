@@ -6,6 +6,7 @@ import com.certiflow.employee.entity.Employee;
 import com.certiflow.employee.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,30 +25,34 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable UUID id) {
-        return employeeService.getEmployeeById(id);
+    public ResponseEntity<EmployeeResponseDto> getEmployeeById(@PathVariable UUID id) {
+        EmployeeResponseDto response = employeeService.getEmployeeById(id);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public EmployeeResponseDto createEmployee(@RequestBody EmployeeRequestDto employee) {
-        return employeeService.createEmployee(employee);
+    public ResponseEntity<EmployeeResponseDto> createEmployee(@RequestBody EmployeeRequestDto dto) {
+        EmployeeResponseDto response = employeeService.createEmployee(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PatchMapping("/{id}/deactivate")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deactivateEmployee(@PathVariable UUID id) {
+    public ResponseEntity<Void> deactivateEmployee(@PathVariable UUID id) {
         employeeService.deactivateEmployee(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/{id}/activate")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void activateEmployee(@PathVariable UUID id) {
+    public ResponseEntity<Void> activateEmployee(@PathVariable UUID id) {
         employeeService.activateEmployee(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")
-    public EmployeeResponseDto updateEmployee(@PathVariable UUID id, @RequestBody EmployeeRequestDto employee) {
-        return employeeService.updateEmployee(id, employee);
+    public ResponseEntity<EmployeeResponseDto> updateEmployee(
+            @PathVariable UUID id,
+            @RequestBody EmployeeRequestDto dto
+    ) {
+        return ResponseEntity.ok(employeeService.updateEmployee(id, dto));
     }
 }
