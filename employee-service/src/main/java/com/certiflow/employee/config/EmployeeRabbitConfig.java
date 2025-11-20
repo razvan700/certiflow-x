@@ -2,7 +2,9 @@ package com.certiflow.employee.config;
 
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class EmployeeRabbitConfig {
 
     public static final String EXCHANGE = "employee.exchange";
