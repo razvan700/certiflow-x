@@ -1,5 +1,7 @@
 package com.certiflow.employee.controller;
 
+import com.certiflow.employee.dto.EmployeeRequestDto;
+import com.certiflow.employee.dto.EmployeeResponseDto;
 import com.certiflow.employee.entity.Employee;
 import com.certiflow.employee.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +30,7 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee createEmployee(@RequestBody Employee employee) {
+    public EmployeeResponseDto createEmployee(@RequestBody EmployeeRequestDto employee) {
         return employeeService.createEmployee(employee);
     }
 
@@ -45,7 +47,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public Employee updateEmployee(@PathVariable UUID id, @RequestBody Employee employee) {
+    public EmployeeResponseDto updateEmployee(@PathVariable UUID id, @RequestBody EmployeeRequestDto employee) {
         return employeeService.updateEmployee(id, employee);
     }
 }
