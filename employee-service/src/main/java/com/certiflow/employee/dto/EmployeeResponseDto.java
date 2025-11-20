@@ -9,5 +9,5 @@ public record EmployeeResponseDto(
         String lastName,
         String email,
         String department,
-        boolean active
+        Boolean active
 ) {}
