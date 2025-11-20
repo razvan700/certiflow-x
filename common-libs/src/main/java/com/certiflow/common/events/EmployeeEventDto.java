@@ -1,4 +1,4 @@
-package com.certiflow.employee.dto;
+package com.certiflow.common.events;
 
 import java.util.UUID;
 

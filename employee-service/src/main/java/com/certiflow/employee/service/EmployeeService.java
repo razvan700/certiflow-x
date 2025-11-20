@@ -1,7 +1,7 @@
 package com.certiflow.employee.service;
 
 import com.certiflow.common.error.ApiException;
-import com.certiflow.employee.dto.EmployeeEventDto;
+import com.certiflow.common.events.EmployeeEventDto;
 import com.certiflow.employee.dto.EmployeeRequestDto;
 import com.certiflow.employee.dto.EmployeeResponseDto;
 import com.certiflow.employee.entity.Employee;

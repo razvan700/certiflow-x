@@ -1,6 +1,6 @@
 package com.certiflow.employee.event;
 
-import com.certiflow.employee.dto.EmployeeEventDto;
+import com.certiflow.common.events.EmployeeEventDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;

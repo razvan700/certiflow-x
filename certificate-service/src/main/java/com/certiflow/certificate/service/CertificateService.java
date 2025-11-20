@@ -6,9 +6,11 @@ import com.certiflow.certificate.entity.Certificate;
 import com.certiflow.certificate.mapper.CertificateMapper;
 import com.certiflow.certificate.repository.CertificateRepository;
 import com.certiflow.common.error.ApiException;
+import com.certiflow.common.events.EmployeeEventDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -51,5 +53,18 @@ public class CertificateService {
     private Certificate findById(UUID id) {
         return certificateRepository.findById(id)
                 .orElseThrow(() -> new ApiException("Certificate not found", 404));
+    }
+
+    public void createInitialCertificates(EmployeeEventDto event) {
+
+        CertificateRequestDto onboardingCert = new CertificateRequestDto(
+                "Onboarding Certificate",
+                "HR Department",
+                LocalDate.now(),
+                null,
+                event.id()
+        );
+
+        createCertificate(onboardingCert);
     }
 }
