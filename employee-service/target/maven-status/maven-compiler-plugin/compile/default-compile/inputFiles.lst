@@ -1,6 +1,10 @@
 C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\dto\EmployeeResponseDto.java
+C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\dto\EmployeeRequestDto.java
 C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\EmployeeServiceApplication.java
+C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\event\EmployeeEventPublisher.java
+C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\config\EmployeeRabbitConfig.java
 C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\service\EmployeeService.java
 C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\entity\Employee.java
+C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\mapper\EmployeeMapper.java
 C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\repository\EmployeeRepository.java
 C:\Users\razva\certiflow-x\employee-service\src\main\java\com\certiflow\employee\controller\EmployeeController.java

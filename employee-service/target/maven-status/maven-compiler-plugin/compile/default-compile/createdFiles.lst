@@ -1,6 +1,12 @@
+com\certiflow\employee\mapper\EmployeeMapperImpl.class
+com\certiflow\employee\dto\EmployeeRequestDto.class
+com\certiflow\employee\dto\EmployeeResponseDto.class
+com\certiflow\employee\event\EmployeeEventPublisher.class
+com\certiflow\employee\config\EmployeeRabbitConfig.class
 com\certiflow\employee\entity\Employee.class
 com\certiflow\employee\controller\EmployeeController.class
 com\certiflow\employee\repository\EmployeeRepository.class
 com\certiflow\employee\service\EmployeeService.class
 com\certiflow\employee\EmployeeServiceApplication.class
+com\certiflow\employee\mapper\EmployeeMapper.class
 com\certiflow\employee\entity\Employee$EmployeeBuilder.class

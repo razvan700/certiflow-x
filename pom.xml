@@ -16,6 +16,7 @@
         <module>certificate-service</module>
         <module>notification-service</module>
         <module>analytics-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <!-- Global properties -->
@@ -37,6 +38,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>3.3.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2023.0.3</version> <!-- Latest for Boot 3.3.x -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

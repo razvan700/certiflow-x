@@ -1,3 +1,4 @@
+com\certiflow\common\events\EmployeeEventDto.class
 com\certiflow\common\error\GlobalExceptionHandler.class
 com\certiflow\common\error\ErrorResponse.class
 com\certiflow\common\error\ApiException.class
